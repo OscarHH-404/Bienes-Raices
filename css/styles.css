@@ -1,0 +1,487 @@
+/*snnipet para poder utilizar 
+html {
+  box-sizing: border-box; lo agregeu en html
+}
+*, *:before, *:after {
+  box-sizing: inherit; y esta parte esta antes de body
+} noa ayudara en caso que le pongamos un ancho de 200px y agregamos un padding no siga incrementando su tamaño y se mantenga en 2oopx*/
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /*counter-reset:  para REMS - 62.5% =10 PX de 16px*/
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Arial, Helvetica, sans-serif';
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+/*GLOBALES SE UTILIZAN EN REPETIDAS OCASIONES*/
+/*mmargin auto para izauierda y derecha*/
+img {
+  max-width: 100%;
+}
+.contenedor {
+  /*margin-left: auto;
+  margin-right: auto;
+  margin: 0 auto 0 auto;*/
+  margin: 0 auto;
+  /*Codigo mas compacto*/
+  max-width: 120rem
+    /*=12000px*/
+}
+
+.prueba{
+  margin: 0 auto;
+  max-width: 120rem
+
+}
+
+.prueba2{
+  flex-basis: calc(33.3% - 1rem);
+
+   /*
+  max-width: 100;
+  /*toma el 100% de la imagen o espacio*/
+ /* display: flex;
+  flex-direction: column;
+  justify-content: space-between;*/
+
+}
+ 
+.prueba3{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.prueba4{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+h1 {
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 3.4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2.8rem;
+}
+
+/*utilidades*/
+.seccion {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.fw300 {
+  font-weight: 300;
+}
+
+.centrar-texto {
+  text-align: center;
+}
+
+.d-block{
+  display: block!important;
+}
+.contenido-centrado{/*ayuda a que el contenido se centre en la pagina de anuncio*/
+  max-width: 800px;
+}
+/*BOTONES*/
+
+.boton{
+color: white;
+font-weight: 700;
+text-decoration: none;
+font-size: 1.8rem;
+padding: 1rem 3rem;
+margin-top: 3rem;
+display: inline-block;
+text-align: center;
+border: none;
+/*
+el padding le designa el tamaño y no tomara todo el anch disponible
+margin-top: 3rem;
+width: 10px;
+display: block; agregara un ancho de 10 px 
+*/
+}
+/*en css algunos elementos tienen un display blog y otros un display inline(En este caso los contienen los enlaces e imagenes) 
+esto quiere decir qu eno puedo aplicar un ancho* no funcionara width:10px/*/
+
+.boton:hover{
+  cursor: pointer;/*CAMBIA EL PUNTERO DEL TRADICIONAL A UNA MANO*/
+}
+.boton-amarillo{
+background-color: #e08709;
+}
+
+.boton-verde{
+background-color: #71b100;
+}
+
+
+/* header */
+
+.site-header{/**SECCION NOSOTROS**/
+  
+  background-color: #333333;
+  padding: 1rem o 3rem 0;
+}
+.site-header.inicio {
+  background-image: url(../img/header.jpg);
+  background-position: center center;
+  /*muestra la imagen desde el centor*/
+  background-size: cover;
+  /*cubre toda la imagen*/
+  height: 100vh;
+  min-height: 60rem;
+  /*=600px*/
+}
+
+.contenido-header {
+  height: 100%;
+  /*toma el 100% de la imagen o espacio*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contenido-header h1 {
+  color: #f5e9f3;
+  padding-bottom: 3rem;
+  /*=30px*/
+  max-width: 60rem;
+  /*=600px*/
+  line-height: 1.8;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3rem;
+  /*=30px*/
+}
+
+.navegacion a {
+  color: rgb(250, 254, 253, 1);
+  text-decoration: none;
+  font-size: 1.8rem;
+  /*=18px*/
+  margin-right: 2rem;
+  /*=20px*/
+}
+
+.navegacion a:hover {
+  color: #718b63;
+}
+
+.navegacion a:last-of-type {
+  margin: 0;
+}
+
+/*iconos nosostro*/
+/* .encabezado-nosotros{ */
+/* font-weight: 300; /*hacer mas ancha la  letra poner mas remaracda la letra por defayult trae 700*, el contemido lo pondremos
+en utilidades para hacer dos clases nuevas
+/* text-align: center; */
+/* } */
+.iconos-nosotros {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icono {
+  flex-basis: calc(33.3% - 1rem);
+  /*operacion matematica 200-50=150 y eso mediran al inspeccinar el codigo*/
+  text-align: center;
+  /*se utiliza para poner de la derecho, izquierdo, justificado o centrar un texto, imagen*/
+}
+
+.icono h3 {
+  text-transform: uppercase;
+}
+
+/**anuncios**/
+
+.contenedor-anuncios{
+  display: flex;
+  justify-content: space-between;/*genera la separacion*/
+  flex-wrap: wrap;
+}
+.anuncio{
+  flex: 0 0 calc(33.3% - 1rem);/*1. es el 0 de grow 2. es el 0 deshrink 3. basis calc(33.3% - 1rem)*/
+  flex-grow: 0; /*para hacer el contenido mas grande*/
+  flex-shrink: 0;/*tomara el ttamaño de la base flex-basis-contenido mas pequeño*/
+  flex-basis: calc(33.3% - 1rem);
+  /*tendran un borde*/
+  /*border-style: solid;
+  border-color: #b5b5b5;
+  border-width: 1px;   se puede utilizar como dborder solamente y tiene los parametros de los tres en uno*/
+  border: 1px solid #b5b5b5;
+  background-color: #f5f5f5;
+  margin-bottom: 2rem;
+}
+
+.contenido-anuncio{
+  /*opcion 1 de usar padding
+  padding-top: 2rem;
+  padding-right: 4rem;
+  padding-bottom: 2rem;
+  padding-left: 4rem;
+  **opcion 2 de usar padding
+  padding: 2rem 4rem; si es que son iguales en cualquier direccion*/
+  /*espacio hacia adentro y se aplica en todas las direcciones no es necesario paddin top, left, right y bottom
+  o padding con todos los lados iguales   padding: 2rem; solo se aplica al coentenido del anuncio*/
+  padding: 2rem; 
+}
+
+.contenido-anuncio h3, 
+.contenido-anuncio p {
+  margin: 0;
+}
+/*se ponen comas despues de cada clase para que esos estilos se aplique a h3 y a p o algun otro elemento que se el quiera
+aplicar margin: 0;*/
+
+
+.precio{
+  color: #71b100;
+  font-weight: 700;
+}
+/*el font-weigth por default de los parrafos=p es de 400 y de h1 es de 700*/
+
+.icono-caracteristicas{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;/*en la seccionanuncio no se quedan pegados las iamgenes de baño y recamaras*/
+  max-width: 500px;
+}
+
+.icono-caracteristicas li{
+  /*flex: 1;*/
+  display: flex;
+}
+
+.icono-caracteristicas li img{
+  margin-right: 2rem;
+}
+.ver-todas{
+  display: flex;
+  justify-content: end;
+}
+
+/**CONTACTO HOME**/
+
+.imagen-contacto{
+  background-image: url(../img/encuentra.jpg);
+  height: 40rem;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+}
+
+.contenido-contacto{
+  flex: 1;
+  color: #ffffff;
+
+  /*detecta cuanto tamaño hay y cuanto elemento hay hace la divisiony como solo hay un elemento lo divide entre 1000, si hubiera dos
+  lo dividen dos */
+}
+
+.contenido-contacto p{
+  font-size: 1.8 rem;
+}
+
+/*SECCION INFERIOR BLOG*/
+.seccion-inferior {
+  display: flex;
+  justify-content: space-between;
+}
+
+.seccion-inferior .blog{
+  flex-basis: 60%;
+}
+
+.seccion-inferior .testimoniales{
+  flex-basis: calc(40% - 2rem);
+}
+
+.entrada-blog{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.entrada-blog:last-of-type{ 
+  margin-bottom: 0;
+}
+/*alinspeccionar el elemento elimina una franja de olor naranja*/
+
+.entrada-blog .imagen{
+  flex-basis: 40%;
+}
+
+.entrada-blog .texto-entrada{
+  flex-basis: calc(60% - 3rem);
+}
+
+.texto-entrada a {
+  color: black;
+  text-decoration: none;
+}
+
+.texto-entrada h4 {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.texto-entrada h4::after {
+  content: '';
+  display: block;
+  width: 15rem;
+  height: .5rem;
+  background-color: #71b100;
+  margin-top: 1rem;
+}
+/*LINEA DEBAJO DEL H4 TERRAZA EN EL TECHO DE TU CASA */
+/*SE AGREGA SEUDOELEMENTO CON AFTER EN H4 Y NO SE PUEDEN SELECIONAR EN LA WEB PARA COPIARLOS EN UN DOCUMENTO */
+
+.texto-entrada span {
+  color: #e08709;
+}
+
+/**TESTIMONIALES**/
+
+.testimonial {
+  background-color: #71b100;
+  font-size: 2.4rem;
+  padding: 2rem;
+  color: white;
+  border-radius: 2rem;
+}
+
+.testimonial p {
+  text-align: right;
+}
+
+.testimonial blockquote::before {
+  content: '';
+  background-image: url(../img/comilla.svg);
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  left: -2rem;
+} 
+/*position top y absolute para una iamgen en un lugar especifico y utilizar top, left, right */
+
+.testimonial blockquote{
+  position: relative;
+  padding-left: 5rem;
+  font-weight: 300;
+}
+
+/*FOOTER*/
+.site-footer {
+  background-color: #333333;
+  margin: 0;
+}
+.contenedor-footer{
+  padding: 3rem o;
+  display: flex;
+  justify-content: space-between;
+}
+.copyright{
+  margin: 0;
+  color: white
+}
+
+/*DE AQUI EN ADELANTE EL CODIGO ES PARA LAS PAGINAS INTERNAS*/
+/*SECCION NOSOTROS*/
+.contenido-nosotros{
+  display: grid;/*GRID PARA COLUMNAS */
+  grid-template-columns: repeat(2, 50%);/*50% 50%, 1fr alternativa a 50% o repeat(2, 50%) */
+  grid-column-gap: 2rem;/*separacion entre columnas */
+}
+.texto-nosotros blockquote {
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0 0 2rem 0;
+}
+
+/*SECCION ANUNCIO*/
+.resumen-propiedad{
+  display: flex;
+  justify-content: space-between;
+}
+
+/*SECCION CONTACTO*/ 
+.contacto p { /*AFECTA A LOS PARRAFOS DENTRO DE LA ETIQUETA FORM*/
+  font-size: 1.4rem;
+  color:#4f4f4f;
+  margin: 2rem 0 0 0;
+}
+/*PARA LOS LABEL Y LEGEND*/
+legend{
+  font-size: 2rem;
+  color: #4f4f4f;
+}
+label {
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+
+}
+
+/*input[type="text"] SELECTOR DE ATRIBUTO */
+input:not([type="submit"]),
+textarea,
+select { /*SELECIIONA TODOS LOS INPUT MENOS EL SUBMIT*/
+  padding: 1rem;
+  display: block;/*TOMA TODO EL ESPACIO DISPONIBLE*/
+  width: 100%;
+  background-color: #e1e1e1;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 1rem;  
+}
+
+input[type="radio"]{/*TOMA SOLO EL ESPACIO DISPONIBLE SECCION CONTACTO PARA SELECIONAR CORREO O TLEFONO*/
+  width: auto;
+}
+
+select {
+  appearance: none;
+}
+
+textarea{
+  height: 20rem;
+}
+
+.forma-contacto{/*PARA LA SECCION DE SELECIONAR TELEFONO O CORREO*/
+  max-width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
